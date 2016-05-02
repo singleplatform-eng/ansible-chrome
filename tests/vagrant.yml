@@ -1,7 +1,7 @@
 # test file for chrome
 ---
-- hosts: localhost
-  connection: local
+- hosts: all
+  remote_user: vagrant
   sudo: true
   roles:
     - ../../

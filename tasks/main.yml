@@ -1,11 +1,13 @@
+# tasks file for chrome
 ---
-# tasks file for ansible-role-chrome
+- include: repository.yml
+  tags:
+    - configuration
+    - chrome
+    - chrome-repository
 
-
-- include: setup-apt.yml
-  when: ansible_pkg_mgr == 'apt'
-
-- include: setup-dnf.yml
-  when: ansible_pkg_mgr == 'dnf'
-
-...
+- include: install.yml
+  tags:
+    - configuration
+    - chrome
+    - chrome-install

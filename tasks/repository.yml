@@ -1,0 +1,39 @@
+# tasks file for chrome
+---
+- name: add public key
+  apt_key:
+    id: A040830F7FAC5991
+    url: https://dl-ssl.google.com/linux/linux_signing_key.pub
+    state: present
+  tags:
+    - chrome-repository-public-key
+
+#- name: add chrome repository
+#  apt_repository:
+#    repo: "{{ item.type }} {{ item.url }} {{ item.component }}"
+#    state: present
+#  with_items: "{{ chrome_repositories }}"
+#  tags:
+#    - chrome-repository-add
+
+# workaround for missing x86 distribution
+- name: add chrome repository
+  copy:
+    content: "{{ item.type }} [arch={{ item.arch }}] {{ item.url }} {{ item.component }}"
+    dest: /etc/apt/sources.list.d/google-chrome.list
+    owner: root
+    group: root
+    mode: 0644
+  with_items: "{{ chrome_repositories }}"
+  register: google_repo
+  tags:
+    - chrome-repository-add
+    - chrome-repository-add-workaround
+
+- name: apt update
+  apt:
+    update_cache: true
+    cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
+  when: google_repo | changed
+  tags:
+    - chrome-repository-update

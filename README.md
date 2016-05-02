@@ -1,41 +1,38 @@
-Ansible Role: Chrome
-=========
-[![Build Status](https://travis-ci.org/cmprescott/ansible-role-chrome.svg?branch=master)](https://travis-ci.org/cmprescott/ansible-role-chrome)
+## chrome
 
-Installs Google Chrome.
+[![Build Status](https://travis-ci.org/Oefenweb/ansible-chrome.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-chrome) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-chrome-blue.svg)](https://galaxy.ansible.com/Oefenweb/ansible-chrome)
 
-Requirements
-------------
+Set up [Google Chrome](https://www.google.com/chrome/) in Debian-like systems.
 
-- **Ansible**: Tested on 1.9.0.1+
-- **apt**: python-apt (http://docs.ansible.com/ansible/apt_module.html)
-- or **dnf**: python-dnf (http://docs.ansible.com/ansible/dnf_module.html)
+#### Requirements
 
-Role Variables
---------------
+None
 
-None.
+#### Variables
 
-Dependencies
-------------
+None
 
-None.
+## Dependencies
 
-Example Playbook
-----------------
+None
+
+#### Example
 
 ```yaml
-- hosts: clients
+---
+- hosts: all
   roles:
-     - { role: cmprescott.chrome, become: yes }
+    - chrome
 ```
 
-License
--------
+#### License
 
 BSD
 
-Author Information
-------------------
+#### Author Information
 
-Prescott Chris
+Mischa ter Smitten (based on work of [Chris Prescott](https://github.com/cmprescott))
+
+#### Feedback, bug-reports, requests, ...
+
+Are [welcome](https://github.com/Oefenweb/ansible-chrome/issues)!
