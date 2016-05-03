@@ -16,15 +16,14 @@
 #  tags:
 #    - chrome-repository-add
 
-# workaround for missing x86 distribution
+# Workaround for missing x86 distribution
 - name: add chrome repository
   copy:
-    content: "{{ item.type }} [arch={{ item.arch }}] {{ item.url }} {{ item.component }}"
+    content: "{{ chrome_repository.type }} [arch={{ chrome_repository.arch }}] {{ chrome_repository.url }} {{ chrome_repository.component }}"
     dest: /etc/apt/sources.list.d/google-chrome.list
     owner: root
     group: root
     mode: 0644
-  with_items: "{{ chrome_repositories }}"
   register: google_repo
   tags:
     - chrome-repository-add
