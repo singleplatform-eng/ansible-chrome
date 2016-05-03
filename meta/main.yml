@@ -1,22 +1,22 @@
+# meta file for chrome
 ---
 galaxy_info:
-  author: Prescott Chris
-  description: Installs Google chrome.
+  author: Mischa ter Smitten
+  company: Oefenweb.nl B.V.
+  description: Set up Google Chrome in Debian-like systems
   license: BSD
-  min_ansible_version: 1.9
+  min_ansible_version: 1.6
   platforms:
-  - name: Ubuntu
-    versions:
-    - trusty
-    - utopic
-    - vivid
-  - name: Debian
-    versions:
-    - squeeze
-    - wheezy
-  - name: Fedora
-    versions:
-    - 23
-  categories:
-  - networking
+    - name: Ubuntu
+      versions:
+        - trusty
+        - xenial
+    - name: Debian
+      versions:
+        - jessie
+  galaxy_tags:
+    - development
+    - system
+    - networking
+    - browser
 dependencies: []

@@ -1,4 +1,10 @@
+# vars file for chrome
 ---
-# vars file for ansible-role-chrome
+chrome_repository:
+  type: deb
+  arch: amd64
+  url: 'http://dl.google.com/linux/chrome/deb/ stable'
+  component: main
 
-...
+chrome_dependencies:
+  - google-chrome-stable
