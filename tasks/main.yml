@@ -1,12 +1,12 @@
 # tasks file for chrome
 ---
-- include: repository.yml
+- include_tasks: repository.yml
   tags:
     - configuration
     - chrome
     - chrome-repository
 
-- include: install.yml
+- include_tasks: install.yml
   tags:
     - configuration
     - chrome
